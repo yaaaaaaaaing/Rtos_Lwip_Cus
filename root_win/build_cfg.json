@@ -1,0 +1,159 @@
+{
+    "include_paths_list": {
+        "FREERTOS_KERNEL_INCLUDE_DIRS":[
+            "../../FreeRTOS/FreeRTOS/Demo/WIN32-MingW/",
+            "../../FreeRTOS/FreeRTOS/Source/include/",
+            "../../FreeRTOS/FreeRTOS/Source/portable/MSVC-MingW/"
+        ],
+        "FREERTOS_PLUS_TRACE_INCLUDE_DIRS":[
+            "../../FreeRTOS/FreeRTOS-Plus/Source/FreeRTOS-Plus-Trace/include/",
+            "../../FreeRTOS/FreeRTOS-Plus/Source/FreeRTOS-Plus-Trace/kernelports/FreeRTOS/include/",
+            "../../FreeRTOS/FreeRTOS/Demo/WIN32-MingW/Trace_Recorder_Configuration"
+        ],
+        "FREERTOS_DEMOS_INCLUDE_DIRS":[
+            "../../FreeRTOS/FreeRTOS/Demo/Common/include/"
+        ],
+        "LWIP_DIRS":[
+            "../../lwip/src/include/",
+            "../../lwip/contrib/ports/win32/include/",
+            "../../lwip/contrib/ports/win32/"
+        ],
+        "FreeRTOS_DEMO_DIR":[
+            "../freertos_demo/"
+        ],
+        "LWIP_DEMO_DIR":[
+            "../lwip_demo/",
+            "D:/tools/npcap-sdk-1.15/Include"
+        ]
+        },
+    "src_paths_list": [
+        {
+            "name" : "MAIN_OBJS",
+            "path_list": ["../../FreeRTOS/FreeRTOS/Demo/WIN32-MingW/"],
+            "exclude_files": [
+
+            ],
+            "header_list":[
+                "FREERTOS_KERNEL_INCLUDE_DIRS",
+                "FREERTOS_PLUS_TRACE_INCLUDE_DIRS",
+                "FREERTOS_DEMOS_INCLUDE_DIRS",
+                "LWIP_DEMO_DIR",
+                "FreeRTOS_DEMO_DIR"
+            ]
+        },
+        {
+            "name" : "FREERTOS_DEMO_OBJS",
+            "path_list": ["../freertos_demo/"],
+            "exclude_files": [
+
+            ],
+            "header_list":[
+                "FREERTOS_KERNEL_INCLUDE_DIRS",
+                "FREERTOS_PLUS_TRACE_INCLUDE_DIRS",
+                "FREERTOS_DEMOS_INCLUDE_DIRS",
+                "LWIP_DEMO_DIR",
+                "FreeRTOS_DEMO_DIR"
+            ]
+        },
+        {
+            "name" : "FREERTOS_KERNEL_OBJS",
+            "path_list": [
+                "../../FreeRTOS/FreeRTOS/Source/",
+                "../../FreeRTOS/FreeRTOS/Source/portable/MemMang/",
+                "../../FreeRTOS/FreeRTOS/Source/portable/MSVC-MingW/"
+            ],
+            "exclude_files": [
+                "heap_1.c",
+                "heap_2.c",
+                "heap_3.c",
+                "heap_4.c"
+            ],
+            "header_list":[
+                "FREERTOS_KERNEL_INCLUDE_DIRS",
+                "FREERTOS_PLUS_TRACE_INCLUDE_DIRS"
+            ]
+        },
+        {
+            "name" : "FREERTOS_DEMOS_OBJS",
+            "path_list": [
+                "../../FreeRTOS/FreeRTOS/Demo/Common/Minimal/"
+            ],
+            "exclude_files": [
+                "comtest_strings.c",
+                "comtest.c" ,
+                "flash_timer.c",
+                "flash.c",
+                "IntQueue.c",
+                "recmutex.c",
+                "sp_flop.c",
+                "TaskNotifyArray.c"
+            ],
+            "header_list":[
+                "FREERTOS_DEMOS_INCLUDE_DIRS",
+                "FREERTOS_KERNEL_INCLUDE_DIRS",
+                "FREERTOS_PLUS_TRACE_INCLUDE_DIRS"
+            ]
+        },
+        {
+            "name" : "FREERTOS_DEMOS_OBJS_Add",
+            "path_list": [
+                "../../FreeRTOS/FreeRTOS/Demo/WIN32-MingW/DemosModifiedForLowTickRate/"
+            ],
+            "exclude_files": [
+
+            ],
+            "header_list":[
+                "FREERTOS_DEMOS_INCLUDE_DIRS",
+                "FREERTOS_KERNEL_INCLUDE_DIRS",
+                "FREERTOS_PLUS_TRACE_INCLUDE_DIRS"
+            ]
+        },
+        {
+            "name" : "FREERTOS_PLUS_TRACE_OBJS",
+            "path_list": [
+                "../../FreeRTOS/FreeRTOS-Plus/Source/FreeRTOS-Plus-Trace/",
+                "../../FreeRTOS/FreeRTOS-Plus/Source/FreeRTOS-Plus-Trace/kernelports/FreeRTOS/"
+            ],
+            "exclude_files": [
+
+            ],
+            "header_list":[
+                "FREERTOS_PLUS_TRACE_INCLUDE_DIRS",
+                "FREERTOS_KERNEL_INCLUDE_DIRS"
+            ]
+        },
+        {
+            "name" : "LWIP_CORE_OBJS",
+            "path_list": [
+                "../../lwip/src/api/",
+                "../../lwip/src/core/",
+                "../../lwip/src/core/ipv4/",
+                "../../lwip/src/netif/"
+            ],
+            "exclude_files": [
+                "slipif.c"
+            ],
+            "header_list":[
+                "LWIP_DIRS",
+                "LWIP_DEMO_DIR"
+            ]
+        },
+        {
+            "name" : "LWIP_DEMO_OBJS",
+            "path_list": [
+                "../lwip_demo/",
+                "../../lwip/contrib/ports/win32/"
+            ],
+            "exclude_files": [
+                 "sio.c"
+            ],
+            "header_list":[
+                "LWIP_DIRS",
+                "LWIP_DEMO_DIR"
+            ]
+        }
+    ]
+
+
+
+}

@@ -1,0 +1,32 @@
+<%page args="data_dict"/>
+# 指定ninja最小需要版本
+ninja_required_version = 1.5
+
+gcc = "D:\Program Files (x86)\mingw32\bin\gcc.exe"
+cflags = -O0 -g3 -Wall -Wextra -c -fmessage-length=0 -Wcast-qual -Wno-error=return-mismatch -D_WIN32_WINNT=0x0601 -DprojCOVERAGE_TEST=0
+ldflags =-L"D:\tools\npcap-sdk-1.15/lib" -lwpcap -lpacket -lws2_32
+
+final_file = ./build/demo.exe
+
+%for header_info_index in range(len(data_dict["header_info_str_list"])):
+rule compile_jfz_${header_info_index}
+  command = $gcc $cflags ${data_dict["header_info_str_list"][header_info_index]} -MMD -MF $out.d  $in -o $out
+  description = Compile $in to $out
+  depfile = $out.d
+  deps = gcc
+%endfor
+
+rule link_jfz
+  command = $gcc $in -Xlinker -o $out $ldflags -lwinmm
+  description = LIB $out
+
+%for source_info in data_dict["source_info_list"]:
+%for source in source_info["source_list"]:
+build ${source["object_path"]}: compile_jfz_${source_info["header_index"]} ${source["source_path"]}
+%endfor
+%endfor
+
+build $final_file: link_jfz ${data_dict["object_path_list"]}
+
+
+default $final_file
