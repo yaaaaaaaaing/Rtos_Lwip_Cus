@@ -18,11 +18,14 @@ TaskCfg_demo_t task_demo_lo_cfg = {1, 2};
 TaskHandle_t taskAHandle_demo_lo;
 TaskCfg_demo_t msg_queue_lo;
 
+TaskHandle_t taskAHandle_demo_pcapif;
+
 
 void demo_init()
 {
     demo_lwip_init();
     xTaskCreate( demo_task_hi, "DemoHI", configDemo_STACK_SIZE, &task_demo_hi_cfg, demoCHECK_TASK_PRIORITY_high, &taskAHandle_demo_hi );
+    xTaskCreate( pcapif_poll_task,"pcap_rx",4096, &g_netif,2,&taskAHandle_demo_pcapif);
 
 }
 

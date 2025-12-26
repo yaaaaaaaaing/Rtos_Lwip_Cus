@@ -9,6 +9,7 @@
 #define LWIP_TCP                0
 #define LWIP_ICMP               1
 #define LWIP_DHCP               0
+#define LWIP_ETHERNET           1
 
 // 内存配置（最小）
 #define MEM_ALIGNMENT           4
@@ -23,5 +24,6 @@
 
 #define MEMP_NUM_SYS_TIMEOUT            10u
 #define PACKET_LIB_ADAPTER_NR           1u
+#define PCAPIF_RX_USE_THREAD            0u
 
 #endif // LWIPOPTS_H

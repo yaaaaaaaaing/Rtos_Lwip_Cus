@@ -6,7 +6,7 @@
 #include "lwip/udp.h"
 #include "lwip/ip_addr.h"
 
-static struct netif g_netif;
+struct netif g_netif;
 
 void demo_lwip_init(void)
 {
@@ -17,6 +17,7 @@ void demo_lwip_init(void)
     IP4_ADDR(&netmask, 255, 255, 240, 0);
     IP4_ADDR(&gw, 10, 110, 224, 1);
     netif_add(&g_netif, &ipaddr, &netmask, &gw, NULL, pcapif_init, ethernet_input);
+    netif_set_default(&g_netif);
     netif_set_up(&g_netif);
     netif_set_link_up(&g_netif);
 }
@@ -45,4 +46,15 @@ void demo_task_main(void)
 
     pbuf_free(p);
     udp_remove(pcb);
+}
+
+void pcapif_poll_task(void *arg)
+{
+    struct netif *netif = (struct netif *)arg;
+
+    for (;;)
+    {
+        pcapif_poll(netif);      // 喂包给 lwIP
+        vTaskDelay(pdMS_TO_TICKS(10));  // FreeRTOS 延时 10ms
+    }
 }
