@@ -1,0 +1,33 @@
+<%page args="data_dict"/>
+# 指定ninja最小需要版本
+ninja_required_version = 1.5
+
+gcc = gcc
+cflags = -ggdb3 -O3
+cppflags = -D_WINDOWS_ -DTRACE_ON_ENTER=0 -DprojENABLE_TRACING=0 -DprojCOVERAGE_TEST=0 -DUSER_DEMO=0
+ldflags = -ggdb3 -pthread -O3 
+
+final_file = ./build/demo
+
+%for header_info_index in range(len(data_dict["header_info_str_list"])):
+rule compile_jfz_${header_info_index}
+  command = $gcc $cflags $cppflags ${data_dict["header_info_str_list"][header_info_index]} $out.d  $in -o $out
+  description = Compile $in to $out
+  depfile = $out.d
+  deps = gcc
+%endfor
+
+rule link_jfz
+  command = $gcc $in -o $out $ldflags
+  description = LIB $out
+
+%for source_info in data_dict["source_info_list"]:
+%for source in source_info["source_list"]:
+build ${source["object_path"]}: compile_jfz_${source_info["header_index"]} ${source["source_path"]}
+%endfor
+%endfor
+
+build $final_file: link_jfz ${data_dict["object_path_list"]}
+
+
+default $final_file

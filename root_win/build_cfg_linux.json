@@ -1,0 +1,102 @@
+{
+    "include_paths_list": {
+        "FREERTOS_INCLUDE_DIRS":[
+            "../../FreeRTOS/FreeRTOS/Demo/Posix_GCC/",
+            "../../FreeRTOS/FreeRTOS/Demo/Posix_GCC/Trace_Recorder_Configuration",
+            "../../FreeRTOS/FreeRTOS/Source/include/",
+            "../../FreeRTOS/FreeRTOS/Source/portable/ThirdParty/GCC/Posix/",
+            "../../FreeRTOS/FreeRTOS/Source/portable/ThirdParty/GCC/Posix/utils/",
+            "../../FreeRTOS/FreeRTOS/Demo/Common/include/",
+            "../../FreeRTOS/FreeRTOS-Plus/Source/FreeRTOS-Plus-Trace/include/",
+            "../../FreeRTOS/FreeRTOS-Plus/Source/FreeRTOS-Plus-Trace/config/",
+            "../../FreeRTOS/FreeRTOS-Plus/Source/FreeRTOS-Plus-Trace/streamports/File/include/",
+            "../../FreeRTOS/FreeRTOS-Plus/Source/FreeRTOS-Plus-Trace/streamports/File/config/",
+            "../../FreeRTOS/FreeRTOS-Plus/Source/FreeRTOS-Plus-Trace/kernelports/FreeRTOS/include/",
+            "../../FreeRTOS/FreeRTOS-Plus/Source/FreeRTOS-Plus-Trace/kernelports/FreeRTOS/"
+        ],
+        "LWIP_DIRS":[
+            "../../lwip/src/include/",
+            "../../lwip/contrib/ports/win32/include/",
+            "../../lwip/contrib/ports/win32/"
+        ],
+        "FreeRTOS_DEMO_DIR":[
+            "../freertos_demo/"
+        ],
+        "LWIP_DEMO_DIR":[
+            "../lwip_demo/",
+            "D:/tools/npcap-sdk-1.15/Include"
+        ]
+        },
+    "src_paths_list": [
+        {
+            "name" : "MAIN_OBJS",
+            "path_list": [
+                "../../FreeRTOS/FreeRTOS/Demo/Posix_GCC/",
+                "../../FreeRTOS/FreeRTOS/Source/",
+                "../../FreeRTOS/FreeRTOS/Source/portable/MemMang/",
+                "../../FreeRTOS/FreeRTOS/Source/portable/ThirdParty/GCC/Posix/",
+                "../../FreeRTOS/FreeRTOS/Source/portable/ThirdParty/GCC/Posix/utils/"
+            ],
+            "exclude_files": [
+                "heap_1.c",
+                "heap_2.c",
+                "heap_4.c",
+                "heap_5.c"
+            ],
+            "header_list":[
+                "FREERTOS_INCLUDE_DIRS",
+                "FreeRTOS_DEMO_DIR"
+            ]
+        },
+        {
+            "name" : "FREERTOS_DEMOS_OBJS",
+            "path_list": [
+                "../../FreeRTOS/FreeRTOS/Demo/Common/Minimal/"
+            ],
+            "exclude_files": [
+                "comtest_strings.c",
+                "comtest.c" ,
+                "crflash.c",
+                "crhook.c",
+                "flash_timer.c",
+                "flash.c",
+                "IntQueue.c",
+                "sp_flop.c",
+                "TaskNotifyArray.c"
+            ],
+            "header_list":[
+                "FREERTOS_INCLUDE_DIRS"
+            ]
+        },
+        {
+            "name" : "FREERTOS_DEMO_OBJS",
+            "path_list": ["../freertos_demo/"],
+            "exclude_files": [
+
+            ],
+            "header_list":[
+                "FREERTOS_INCLUDE_DIRS",
+                "FreeRTOS_DEMO_DIR"
+            ]
+        },
+        
+        
+        {
+            "name" : "FREERTOS_PLUS_TRACE_OBJS",
+            "path_list": [
+                "../../FreeRTOS/FreeRTOS-Plus/Source/FreeRTOS-Plus-Trace/",
+                "../../FreeRTOS/FreeRTOS-Plus/Source/FreeRTOS-Plus-Trace/kernelports/FreeRTOS/"
+            ],
+            "exclude_files": [
+
+            ],
+            "header_list":[
+                "FREERTOS_PLUS_TRACE_INCLUDE_DIRS",
+                "FREERTOS_KERNEL_INCLUDE_DIRS"
+            ]
+        }
+    ]
+
+
+
+}
