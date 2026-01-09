@@ -15,8 +15,7 @@
         ],
         "LWIP_DIRS":[
             "../../lwip/src/include/",
-            "../../lwip/contrib/ports/win32/include/",
-            "../../lwip/contrib/ports/win32/"
+            "../../lwip/contrib/ports/freertos/include/"
         ],
         "FreeRTOS_DEMO_DIR":[
             "../freertos_demo/"
@@ -142,14 +141,16 @@
             "name" : "LWIP_DEMO_OBJS",
             "path_list": [
                 "../lwip_demo/",
-                "../../lwip/contrib/ports/win32/"
+                "../../lwip/contrib/ports/freertos/"
             ],
             "exclude_files": [
-                 "sio.c"
+
             ],
             "header_list":[
                 "LWIP_DIRS",
-                "LWIP_DEMO_DIR"
+                "LWIP_DEMO_DIR",
+                "FREERTOS_KERNEL_INCLUDE_DIRS",
+                "FREERTOS_PLUS_TRACE_INCLUDE_DIRS"
             ]
         }
     ]

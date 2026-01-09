@@ -4,7 +4,7 @@
 #include "task.h"
 #include "semphr.h"
 
-#define configDemo_STACK_SIZE 1024u
+#define configDemo_STACK_SIZE 100u
 #define demoCHECK_TASK_PRIORITY_high    ( configMAX_PRIORITIES - 1 )
 #define demoCHECK_TASK_PRIORITY_mid     ( configMAX_PRIORITIES - 2 )
 #define demoCHECK_TASK_PRIORITY_lo      ( configMAX_PRIORITIES - 3 )
